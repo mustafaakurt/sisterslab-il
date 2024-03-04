@@ -1,5 +1,7 @@
 package com.mustafaakurt.sisterslabil.controller;
 
+import com.mustafaakurt.sisterslabil.dto.request.CityRequestDto;
+import com.mustafaakurt.sisterslabil.dto.response.CityResponseDto;
 import com.mustafaakurt.sisterslabil.model.City;
 import com.mustafaakurt.sisterslabil.service.CityService;
 import lombok.RequiredArgsConstructor;
@@ -14,8 +16,8 @@ public class CityController {
     private final CityService cityService;
 
     @PostMapping
-    public City createCity(@RequestBody City city) {
-        return cityService.createCity(city);
+    public CityResponseDto createCity(@RequestBody CityRequestDto newCity){
+        return cityService.createCity(newCity);
     }
     @GetMapping
     public List<City> getCities(@RequestParam(required = false) String city){
